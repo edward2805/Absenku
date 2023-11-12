@@ -60,9 +60,11 @@ class ScanQrActivity : AppCompatActivity() {
 
             decodeCallback = DecodeCallback {
                 runOnUiThread {
-                    if (it.text == "absenku"){
+                        val kode = it.text.toString()
                         val api = RetrofitClient().instance
-                        api.scan_qr(profile.getString("id_siswa", null), "hadir").enqueue(object : Callback<ResponseScan>{
+                        val id_kelas = profile.getString("id_kelas", null)
+                        api.scan_qr(profile.getString("id_siswa", null), id_kelas, "hadir", kode)
+                            .enqueue(object : Callback<ResponseScan>{
                             override fun onResponse(
                                 call: Call<ResponseScan>,
                                 response: Response<ResponseScan>
@@ -103,18 +105,17 @@ class ScanQrActivity : AppCompatActivity() {
 
                         })
 
-                    }else{
-
                     }
+                errorCallback = ErrorCallback {
+                    runOnUiThread {
+                        Log.e("Main", "codeScanner: ${it.message}")
+                    }
+                }
 
                 }
             }
 
-            errorCallback = ErrorCallback {
-                runOnUiThread {
-                    Log.e("Main", "codeScanner: ${it.message}")
-                }
-            }
+
 
 
 //            binding!!.scn.setOnClickListener {
@@ -122,7 +123,6 @@ class ScanQrActivity : AppCompatActivity() {
 //            }
 
         }
-    }
 
     override fun onResume() {
         super.onResume()

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.skyfishjy.library.RippleBackground
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rippleBackground"
+    app:rb_color="@color/white"
+    app:rb_radius="32dp"
+    app:rb_rippleAmount="6"
+    app:rb_duration="3000"
+    app:rb_scale="6"
+    android:background="@color/teal_700"
+    tools:context=".LokasiActivity">
+
+
+    <TextView
+        android:id="@+id/tv_checkin"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Cari Lokasi"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/tv_scaning"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scanning..."
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_below="@+id/tv_checkin"
+        android:layout_centerHorizontal="true"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_cekin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:src="@drawable/ic_search"
+        android:layout_centerInParent="true"
+        android:contentDescription="Cek In"/>
+
+    <TextView
+        android:id="@+id/tv_checkinsukses"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkin Sukses"
+        android:background="@drawable/bg_checkin"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:paddingStart="68dp"
+        android:paddingEnd="68dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"/>
+
+
+
+</com.skyfishjy.library.RippleBackground>

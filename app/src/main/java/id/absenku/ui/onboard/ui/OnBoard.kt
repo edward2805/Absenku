@@ -60,7 +60,7 @@ class OnBoard : AppCompatActivity(){
         onBoardItemAdapter = onBoardItemAdapter(
             listOf(
                 OnBoardItem(
-                    onboardImage = R.drawable.splash1,
+                    onboardImage = R.drawable.splash,
                     "Scan untuk absen",
                 "Kamu dapat scan qr code dari guru untuk absen"
                 ),

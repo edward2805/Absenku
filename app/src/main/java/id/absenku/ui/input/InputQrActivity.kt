@@ -27,9 +27,10 @@ class InputQrActivity: AppCompatActivity() {
         setContentView(binding!!.root)
         profile = getSharedPreferences("Login_session", MODE_PRIVATE)
         binding!!.btnPresensi.setOnClickListener {
-                if (binding!!.kodePresensi.text.toString() == "U2FsdGVkX18ByBoPNzO7J5Rd3ZOvCfvlp8e6g1w3+Q1tUNct6F2tzhWFS4CnDWz4"){
+                    val kode = binding!!.kodePresensi.text.toString()
                     val api = RetrofitClient().instance
-                    api.scan_qr(profile.getString("id_siswa", null), "hadir").enqueue(object :
+                    val id_kelas = profile.getString("id_kelas", null)
+                    api.scan_qr(profile.getString("id_siswa", null), id_kelas, "hadir", kode).enqueue(object :
                         Callback<ResponseScan> {
                         override fun onResponse(
                             call: Call<ResponseScan>,
@@ -71,10 +72,7 @@ class InputQrActivity: AppCompatActivity() {
 
                     })
 
-                }else{
-
                 }
             }
 
         }
-    }

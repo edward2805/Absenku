@@ -23,7 +23,6 @@ RecyclerView.Adapter<onBoardItemAdapter.SplashScreenItemViewHolder>(){
             textDeskiprisi.text = onBoardItem.deskripsi
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SplashScreenItemViewHolder {
         return SplashScreenItemViewHolder(
             LayoutInflater.from(parent.context).inflate(

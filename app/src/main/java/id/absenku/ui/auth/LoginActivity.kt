@@ -74,6 +74,7 @@ class LoginActivity: AppCompatActivity() {
                     getSharedPreferences("Login_session", MODE_PRIVATE)
                         .edit()
                         .putString("id_siswa", response.body()?.payload?.id_siswa)
+                        .putString("id_kelas", response.body()?.payload?.id_kelas)
                         .putString("username", response.body()?.payload?.username)
                         .putString("nama_siswa", response.body()?.payload?.nama_siswa)
                         .apply()

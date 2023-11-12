@@ -27,7 +27,9 @@ interface ApiClient {
     @POST("scan_service.php")
     fun scan_qr(
         @Field("id_siswa") id_siswa: String?,
-        @Field("status") status: String
+        @Field("id_kelas") id_kelas: String?,
+        @Field("status") status: String,
+        @Field("qr_code") qr_code: String
     ):Call<ResponseScan>
 
     @FormUrlEncoded

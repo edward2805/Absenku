@@ -3,12 +3,11 @@ package id.absenku.ui
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import id.absenku.databinding.ActivityMainBinding
 import id.absenku.ui.auth.LoginActivity
 import id.absenku.ui.rekap_absen.RekapActivity
-import id.absenku.ui.scan.ScanQrActivity
+import id.absenku.LokasiActivity
 
 class MainActivity: AppCompatActivity() {
     private var binding: ActivityMainBinding? = null
@@ -20,9 +19,10 @@ class MainActivity: AppCompatActivity() {
         setContentView(binding!!.root)
 
         profile = getSharedPreferences("Login_session", MODE_PRIVATE)
-        binding!!.username.text = profile.getString("nama_siswa", null).toString()
+        val id_kelas = profile.getString("id_kelas", null)
+        binding!!.username.text = id_kelas.toString()
         binding!!.cardScanQR.setOnClickListener {
-            startActivity(Intent(this@MainActivity, ScanQrActivity::class.java))
+            startActivity(Intent(this@MainActivity, LokasiActivity::class.java))
             finish()
         }
         binding!!.cardDataPresensi.setOnClickListener {
