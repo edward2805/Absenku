@@ -41,7 +41,7 @@ class LoginActivity: AppCompatActivity() {
 
             when{
                 user == "" -> {
-                    binding!!.etUsername.error = "Username Tidak Boleh Kosong"
+                    binding!!.etUsername.error = "nisn Tidak Boleh Kosong"
                 }
                 pass == "" -> {
                     binding!!.etPassword.error = "Password Tidak Boleh Kosong"
@@ -75,7 +75,7 @@ class LoginActivity: AppCompatActivity() {
                         .edit()
                         .putString("id_siswa", response.body()?.payload?.id_siswa)
                         .putString("id_kelas", response.body()?.payload?.id_kelas)
-                        .putString("username", response.body()?.payload?.username)
+                        .putString("nisn", response.body()?.payload?.nisn)
                         .putString("nama_siswa", response.body()?.payload?.nama_siswa)
                         .apply()
                     if (response.body()?.response == true){
@@ -84,7 +84,7 @@ class LoginActivity: AppCompatActivity() {
                     }else{
                         binding!!.loading.visibility = View.GONE
                         Toast.makeText(this@LoginActivity,
-                            "Login Gagal, Periksa Kembali username dan Password",
+                            "Login Gagal, Periksa Kembali nisn dan Password",
                             Toast.LENGTH_LONG).show()
                     }
                 }else{

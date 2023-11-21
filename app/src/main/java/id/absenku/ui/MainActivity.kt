@@ -19,8 +19,8 @@ class MainActivity: AppCompatActivity() {
         setContentView(binding!!.root)
 
         profile = getSharedPreferences("Login_session", MODE_PRIVATE)
-        val id_kelas = profile.getString("id_kelas", null)
-        binding!!.username.text = id_kelas.toString()
+        val nama_siswa = profile.getString("nama_siswa", null)
+        binding!!.username.text = nama_siswa.toString()
         binding!!.cardScanQR.setOnClickListener {
             startActivity(Intent(this@MainActivity, LokasiActivity::class.java))
             finish()
